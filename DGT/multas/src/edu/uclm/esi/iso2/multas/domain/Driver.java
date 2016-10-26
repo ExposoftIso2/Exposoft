@@ -3,7 +3,7 @@ package edu.uclm.esi.iso2.multas.domain;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Table;
-
+//prueba para push Fer
 @Entity
 @Table
 public class Driver extends SanctionHolder {
