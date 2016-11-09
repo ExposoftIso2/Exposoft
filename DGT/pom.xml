@@ -27,4 +27,8 @@
     <module>radar</module>
     <module>interfaz</module>
   </modules>
+  <organization>
+  	<name>Exposoft</name>
+  	<url>https://sites.google.com/site/exposoftiso2uclm/</url>
+  </organization>
 </project>
