@@ -1,4 +1,4 @@
-package edu.uclm.es.iso2.DGT;
+package edu.uclm.es.radar;
 
 public class Radar {
 	boolean encendido=false;
