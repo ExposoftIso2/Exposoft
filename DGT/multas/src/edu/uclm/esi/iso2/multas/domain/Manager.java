@@ -29,6 +29,7 @@ public class Manager {
 	}
 	
 	/**
+	 * creamos un infraccion y nos devuelve su identificador
 	 * Executed by {@link Manager} when a vehicle passes through the radar exceeding the speed limit
 	 * @param license: license plate of the vehicle
 	 * @param speed: speed of the vehicle
@@ -43,6 +44,8 @@ public class Manager {
 	}
 	
 	/**
+	 * 
+	 * identificando al conductor con su identificador y el numero de infraccion. Se realizará una sancion.
 	 * Executed from the user interface when the vehicle's owner identifies the driver
 	 * @param idInquiry id of the {@link Inquiry}
 	 * @param dni dni of the {@link Driver}
