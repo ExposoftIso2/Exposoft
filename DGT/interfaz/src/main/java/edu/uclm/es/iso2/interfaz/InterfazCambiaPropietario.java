@@ -1,5 +1,10 @@
 package edu.uclm.es.iso2.DGT;
 
+import edu.uclm.esi.iso2.multas.dao.DriverDao;
+import edu.uclm.esi.iso2.multas.dao.GeneralDao;
+import edu.uclm.esi.iso2.multas.dao.OwnerDao;
+import edu.uclm.esi.iso2.multas.dao.VehicleDao;
+
 import java.awt.EventQueue;
 
 import javax.swing.JFrame;
