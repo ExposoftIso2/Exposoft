@@ -1,7 +1,5 @@
 package edu.uclm.es.radar;
 
-import edu.uclm.esi.iso2.multas.domain.*;
-import edu.uclm.es.iso2.DGT.*;
 import java.util.Date;
 import java.util.Random;
 import java.util.concurrent.TimeUnit;
@@ -32,7 +30,7 @@ public class Radar {
 		}else
 			throw new Exception("Ya apagado");
 	}
-	public void apertura_de_expendiente(String matricula, dobule velocidad){
+	public void apertura_de_expendiente(String matricula, double velocidad){
 		//creamos un administrador de multas
 		Manager manger_aux = manager.get();
 
