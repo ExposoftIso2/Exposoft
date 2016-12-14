@@ -1,4 +1,4 @@
-package DGT.multas;
+package test.java.DGT.multas;
 
 import junit.framework.Test;
 import junit.framework.TestCase;
