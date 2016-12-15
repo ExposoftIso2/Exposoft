@@ -3,6 +3,7 @@ package edu.uclm.esi.iso2.multas.tests;
 import static org.junit.Assert.*;
 
 import java.io.IOException;
+import java.sql.DriverManager;
 
 import org.hibernate.Query;
 import org.hibernate.Session;
@@ -11,6 +12,9 @@ import org.hibernate.Transaction;
 import org.hibernate.cfg.Configuration;
 import org.junit.Before;
 import org.junit.Test;
+
+import com.mysql.jdbc.Connection;
+import com.mysql.jdbc.Statement;
 
 import edu.uclm.esi.iso2.multas.dao.DriverDao;
 import edu.uclm.esi.iso2.multas.dao.GeneralDao;
@@ -24,9 +28,18 @@ public class TestManager {
     private Configuration cfg;
     private SessionFactory factory;
     private Session session;
-
+    Connection con;
+    Statement st;
     @Before
     public void setUp() throws IOException {
+    	
+//    	try{
+//    		Class.forName("com.mysql.jdbc.Driver");
+//    		con=(Connection)DriverManager.getConnection("jdbc:mysql://localhost:3306/multas","root", "");
+//    		st=(Statement)con.createStatement();
+//    	}catch(Exception e){
+//    		System.out.println(e);
+//    	}
         cfg=new Configuration();
         cfg.configure("hibernate.cfg.xml");
         factory=cfg.buildSessionFactory();
@@ -52,7 +65,6 @@ public class TestManager {
         Driver driver = dDao.findByDni("5000000");
         m.pay(s.getId());
         assertTrue(driver.getPoints()==12);
-    	
-    }
+   }
 
 }
