@@ -67,6 +67,29 @@ public class Manager {
 		Sanction sanction=dao.findById(Sanction.class, idSanction);
 		sanction.pay();
 		dao.update(sanction);
+		//cuando pagamos, faltaba por añadir el tener que restar puntos al conductor
+		int points=sanction.getPoints();
+		if(points>0){
+			String dni=sanction.getSanctionHolder().getDni();
+			DriverDao driverDao=new DriverDao();
+			Driver driver=driverDao.findByDni(dni);
+			driver.setPoints(driver.getPoints()-points);
+			driverDao.update(driver);
+		}
+	}
+	public void pay(Sanction sanction){
+		GeneralDao<Sanction> dao=new GeneralDao<>();
+		sanction.pay();
+		dao.update(sanction);
+		//cuando pagamos, faltaba por añadir el tener que restar puntos al conductor
+		int points=sanction.getPoints();		
+		if(points>0){
+			String dni=sanction.getSanctionHolder().getDni();
+			DriverDao driverDao=new DriverDao();
+			Driver driver=driverDao.findByDni(dni);
+			driver.setPoints(driver.getPoints()-points);
+			driverDao.update(driver);
+		}
 	}
 	
 	/**

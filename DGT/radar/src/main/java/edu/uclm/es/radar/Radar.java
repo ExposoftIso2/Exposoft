@@ -1,5 +1,6 @@
 package edu.uclm.es.radar;
 
+import edu.uclm.esi.iso2.multas.*;
 import java.util.Date;
 import java.util.Random;
 import java.util.concurrent.TimeUnit;

@@ -204,7 +204,9 @@ public class Inquiry {
 
 	private int calculateAmount() {
 		if (maxSpeed==30) {
-			if (speed>=31 && speed<=50) 
+			if(speed <=maxSpeed)
+				return 0;
+			else if (speed>=31 && speed<=50) 
 				return 100;
 			else if (speed>=51 && speed<=60)
 				return 300;
@@ -215,7 +217,9 @@ public class Inquiry {
 			else
 				return 6;
 		} else if (maxSpeed==40) {
-			if (speed>=41 && speed<=60) 
+			if(speed <=maxSpeed)
+				return 0;
+			else if (speed>=41 && speed<=60) 
 				return 100;
 			else if (speed>=61 && speed<=70)
 				return 300;
@@ -226,7 +230,9 @@ public class Inquiry {
 			else
 				return 600;
 		} else if (maxSpeed==60) {
-			if (speed>=61 && speed<=90) 
+			if(speed <=maxSpeed)
+				return 0;
+			else if (speed>=61 && speed<=90) 
 				return 100;
 			else if (speed>=91 && speed<=110)
 				return 300;
@@ -237,7 +243,9 @@ public class Inquiry {
 			else 
 				return 600;
 		} else if (maxSpeed==70) {
-			if (speed>=71 && speed<=100) 
+			if(speed <=maxSpeed)
+				return 0;
+			else if (speed>=71 && speed<=100) 
 				return 100;
 			else if (speed>=101 && speed<=120)
 				return 300;
@@ -248,7 +256,9 @@ public class Inquiry {
 			else
 				return 600;
 		} else if (maxSpeed==80) {
-			if (speed>=81 && speed<=110) 
+			if(speed <=maxSpeed)
+				return 0;
+			else if (speed>=81 && speed<=110) 
 				return 100;
 			else if (speed>=111 && speed<=130)
 				return 300;
@@ -259,7 +269,9 @@ public class Inquiry {
 			else
 				return 600;
 		} else if (maxSpeed==90) {
-			if (speed>=91 && speed<=120) 
+			if(speed <=maxSpeed)
+				return 0;
+			else if (speed>=91 && speed<=120) 
 				return 100;
 			else if (speed>=121 && speed<=140)
 				return 300;
@@ -270,7 +282,9 @@ public class Inquiry {
 			else
 				return 600;
 		} else if (maxSpeed==100) {
-			if (speed>=101 && speed<=130) 
+			if(speed <=maxSpeed)
+				return 0;
+			else if (speed>=101 && speed<=130) 
 				return 100;
 			else if (speed>=131 && speed<=150)
 				return 300;
@@ -281,7 +295,9 @@ public class Inquiry {
 			else
 				return 600;
 		} else if (maxSpeed==110) {
-			if (speed>=111 && speed<=140) 
+			if(speed <=maxSpeed)
+				return 0;
+			else if (speed>=111 && speed<=140) 
 				return 100;
 			else if (speed>=141 && speed<=160)
 				return 300;
@@ -292,7 +308,9 @@ public class Inquiry {
 			else
 				return 600;
 		} else if (maxSpeed==120) {
-			if (speed>=121 && speed<=150) 
+			if(speed <=maxSpeed)
+				return 0;
+			else if (speed>=121 && speed<=150) 
 				return 100;
 			else if (speed>=151 && speed<=170)
 				return 300;
