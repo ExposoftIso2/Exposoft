@@ -135,7 +135,17 @@ public class Inquiry {
 				return 4;
 			else if (speed>=81)
 				return 6;
-		} else if (maxSpeed==60) {
+		} else if (maxSpeed==50) {
+			if (speed<=70)
+				return 0;
+			else if (speed>=71 && speed<=80)
+				return 2;
+			else if (speed>=81 && speed<=90)
+				return 4;
+			else if (speed>=91)
+				return 6;
+			
+		}else if (maxSpeed==60) {
 			if (speed>=61 && speed<=90) 
 				return 0;
 			else if (speed>=91 && speed<=110)
@@ -215,7 +225,7 @@ public class Inquiry {
 			else if (speed>=71 && speed<=80)
 				return 500;
 			else
-				return 6;
+				return 600;
 		} else if (maxSpeed==40) {
 			if(speed <=maxSpeed)
 				return 0;
@@ -229,6 +239,20 @@ public class Inquiry {
 				return 500;
 			else
 				return 600;
+		} else if (maxSpeed==50) {
+			if(speed<=maxSpeed)
+				return 0;
+			else if (speed>=51 && speed<=70)
+				return 100;
+			else if (speed>=71 && speed<=80)
+				return 300;
+			else if (speed>=81 && speed<=90)
+				return 400;
+			else if (speed>=91 && speed<=100)
+				return 500;
+			else
+				return 600;
+			
 		} else if (maxSpeed==60) {
 			if(speed <=maxSpeed)
 				return 0;
