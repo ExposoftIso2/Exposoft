@@ -115,234 +115,78 @@ public class Inquiry {
 	public void setMaxSpeed(double maxSpeed) {
 		this.maxSpeed = maxSpeed;
 	}
-
-	private int calculatePoints() {
-		if (maxSpeed==30) {
-			if (speed>=31 && speed<=50) 
-				return 0;
-			else if (speed>=51 && speed<=60)
-				return 2;
-			else if (speed>=61 && speed<=70)
-				return 4;
-			else if (speed>=71)
-				return 6;
-		} else if (maxSpeed==40) {
-			if (speed>=41 && speed<=60) 
-				return 0;
-			else if (speed>=61 && speed<=70)
-				return 2;
-			else if (speed>=71 && speed<=80)
-				return 4;
-			else if (speed>=81)
-				return 6;
-		} else if (maxSpeed==50) {
-			if (speed<=70)
-				return 0;
-			else if (speed>=71 && speed<=80)
-				return 2;
-			else if (speed>=81 && speed<=90)
-				return 4;
-			else if (speed>=91)
-				return 6;
-			
-		}else if (maxSpeed==60) {
-			if (speed>=61 && speed<=90) 
-				return 0;
-			else if (speed>=91 && speed<=110)
-				return 2;
-			else if (speed>=111 && speed<=120)
-				return 4;
-			else if (speed>=121)
-				return 6;
-		} else if (maxSpeed==70) {
-			if (speed>=71 && speed<=100) 
-				return 0;
-			else if (speed>=101 && speed<=120)
-				return 2;
-			else if (speed>=121 && speed<=130)
-				return 4;
-			else if (speed>=131)
-				return 6;
-		} else if (maxSpeed==80) {
-			if (speed>=81 && speed<=110) 
-				return 0;
-			else if (speed>=111 && speed<=130)
-				return 2;
-			else if (speed>=131 && speed<=140)
-				return 4;
-			else if (speed>=141)
-				return 6;
-		} else if (maxSpeed==90) {
-			if (speed>=91 && speed<=120) 
-				return 0;
-			else if (speed>=121 && speed<=140)
-				return 2;
-			else if (speed>=141 && speed<=150)
-				return 4;
-			else if (speed>=151)
-				return 6;
-		} else if (maxSpeed==100) {
-			if (speed>=101 && speed<=130) 
-				return 0;
-			else if (speed>=131 && speed<=150)
-				return 2;
-			else if (speed>=151 && speed<=160)
-				return 4;
-			else if (speed>=161)
-				return 6;
-		} else if (maxSpeed==110) {
-			if (speed>=111 && speed<=140) 
-				return 0;
-			else if (speed>=141 && speed<=160)
-				return 2;
-			else if (speed>=161 && speed<=170)
-				return 4;
-			else if (speed>=171)
-				return 6;
-		} else if (maxSpeed==120) {
-			if (speed>=121 && speed<=150) 
-				return 0;
-			else if (speed>=151 && speed<=170)
-				return 2;
-			else if (speed>=171 && speed<=180)
-				return 4;
-			else if (speed>=181)
-				return 6;
-		}
+	private int points(int lInf1, int lSup1, int lSup2){
+		if(speed>=lInf1 && speed<=lSup1)
+			return 2;
+		else if (speed>=(lSup1+1) && speed<=lSup2)
+			return 4;
+		else if (speed>=(lSup2+1))
+			return 6;
+		
 		return 0;
 	}
 
+	private int calculatePoints() {
+		if (maxSpeed==30)
+			return points(51, 60, 70);
+		else if(maxSpeed==40)
+			return points(61, 70, 80);
+		else if(maxSpeed==50)
+			return points(71, 80, 90);
+		else if(maxSpeed==60)
+			return points(91, 110, 120);
+		else if(maxSpeed==70)
+			return points(101, 120, 130);
+		else if(maxSpeed==80)
+			return points(111,130,140);
+		else if(maxSpeed==90)
+			return points(121, 140, 150);
+		else if(maxSpeed==100)
+			return points(131, 150, 160);
+		else if(maxSpeed==110)
+			return points(141,160,170);
+		else if(maxSpeed==120)
+			return points(151,170,180);
+		return -1;
+	}
+	
+	private int amount(int lInf1, int lInf2, int lSup1, int lSup2){
+		if (speed<=maxSpeed)
+			return 0;
+		else if (speed>=(maxSpeed+1) && speed<=lInf1)
+			return 100;
+		else if (speed>=(lInf1+1) && speed<=lInf2)
+			return 300;
+		else if (speed>=(lInf2+1) && speed<=lSup1)
+			return 400;
+		else if (speed>=(lSup1+1) && speed<=lSup2)
+			return 500;
+		else if (speed>=(lSup2+1))
+			return 600;
+		return -1;
+	}
+	
 	private int calculateAmount() {
 		if (maxSpeed==30) {
-			if(speed <=maxSpeed)
-				return 0;
-			else if (speed>=31 && speed<=50) 
-				return 100;
-			else if (speed>=51 && speed<=60)
-				return 300;
-			else if (speed>=61 && speed<=70)
-				return 400;
-			else if (speed>=71 && speed<=80)
-				return 500;
-			else
-				return 600;
+			return amount(50, 60, 70, 80);
 		} else if (maxSpeed==40) {
-			if(speed <=maxSpeed)
-				return 0;
-			else if (speed>=41 && speed<=60) 
-				return 100;
-			else if (speed>=61 && speed<=70)
-				return 300;
-			else if (speed>=71 && speed<=80)
-				return 400;
-			else if (speed>=81 && speed<=90)
-				return 500;
-			else
-				return 600;
+			return amount(60, 70, 80, 90);
 		} else if (maxSpeed==50) {
-			if(speed<=maxSpeed)
-				return 0;
-			else if (speed>=51 && speed<=70)
-				return 100;
-			else if (speed>=71 && speed<=80)
-				return 300;
-			else if (speed>=81 && speed<=90)
-				return 400;
-			else if (speed>=91 && speed<=100)
-				return 500;
-			else
-				return 600;
-			
+			return amount(70, 80, 90, 100);
 		} else if (maxSpeed==60) {
-			if(speed <=maxSpeed)
-				return 0;
-			else if (speed>=61 && speed<=90) 
-				return 100;
-			else if (speed>=91 && speed<=110)
-				return 300;
-			else if (speed>=111 && speed<=120)
-				return 400;
-			else if (speed>=121 && speed<=130)
-				return 500;
-			else 
-				return 600;
+			return amount(90, 110, 120, 130);
 		} else if (maxSpeed==70) {
-			if(speed <=maxSpeed)
-				return 0;
-			else if (speed>=71 && speed<=100) 
-				return 100;
-			else if (speed>=101 && speed<=120)
-				return 300;
-			else if (speed>=121 && speed<=130)
-				return 400;
-			else if (speed>=131 && speed<=140)
-				return 500;
-			else
-				return 600;
+			return amount(100, 120, 130, 140);
 		} else if (maxSpeed==80) {
-			if(speed <=maxSpeed)
-				return 0;
-			else if (speed>=81 && speed<=110) 
-				return 100;
-			else if (speed>=111 && speed<=130)
-				return 300;
-			else if (speed>=131 && speed<=140)
-				return 400;
-			else if (speed>=141 && speed<=150)
-				return 500;
-			else
-				return 600;
+			return amount(110, 130, 140, 150);
 		} else if (maxSpeed==90) {
-			if(speed <=maxSpeed)
-				return 0;
-			else if (speed>=91 && speed<=120) 
-				return 100;
-			else if (speed>=121 && speed<=140)
-				return 300;
-			else if (speed>=141 && speed<=150)
-				return 400;
-			else if (speed>=151 && speed<=160)
-				return 500;
-			else
-				return 600;
+			return amount(120, 140, 150, 160);
 		} else if (maxSpeed==100) {
-			if(speed <=maxSpeed)
-				return 0;
-			else if (speed>=101 && speed<=130) 
-				return 100;
-			else if (speed>=131 && speed<=150)
-				return 300;
-			else if (speed>=151 && speed<=160)
-				return 400;
-			else if (speed>=161 && speed<=170)
-				return 500;
-			else
-				return 600;
+			return amount(130, 150, 160, 170);
 		} else if (maxSpeed==110) {
-			if(speed <=maxSpeed)
-				return 0;
-			else if (speed>=111 && speed<=140) 
-				return 100;
-			else if (speed>=141 && speed<=160)
-				return 300;
-			else if (speed>=161 && speed<=170)
-				return 400;
-			else if (speed>=171 && speed<=180)
-				return 500;
-			else
-				return 600;
+			return amount(140, 160, 170, 180);
 		} else if (maxSpeed==120) {
-			if(speed <=maxSpeed)
-				return 0;
-			else if (speed>=121 && speed<=150) 
-				return 100;
-			else if (speed>=151 && speed<=170)
-				return 300;
-			else if (speed>=171 && speed<=180)
-				return 400;
-			else if (speed>=181 && speed<=190)
-				return 500;
-			else return 600;
+			return amount(150, 170, 180, 190);
 		}
 		return 0;
 	}
