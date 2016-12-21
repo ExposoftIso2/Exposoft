@@ -2346,7 +2346,6 @@ public class TestManager {
     	//comprobacion de que se genera la inquiry
     	assertNotNull(i);
     	Sanction s= m.identifyDriver(idInquiry, "5000000");
-
     	//comprobacion sancion correcta
     	assertTrue(s.getAmount()==500);
     	assertTrue(s.getPoints()==6);
